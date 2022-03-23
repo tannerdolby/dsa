@@ -1,6 +1,7 @@
 #include <iostream>
 #include "binary-search.h"
 #include "singly-linked-list.h"
+#include "binary-search-tree.h"
 
 int main() {
     // Binary Search Examples
@@ -65,6 +66,55 @@ int main() {
 	cout << "Reversed: " << endl;
 	ListNode* rev = list->iterativeReverse();
 	list->printList();
+
+    BinaryTree bt;
+	Node *root = NULL;
+
+	// 3 5 2 1 4 6 7
+	int treeOne[] = {3, 5, 2, 1, 4, 6, 7 };
+	// tree 1 - longest root-to-leaf path is 4 nodes connected by 3 edges, the tree tree height is 3
+	/*
+	       3
+             /  \
+            2    5
+           /    /  \
+          1    4    6
+           	     \
+	               7
+	*/
+
+	// iterate the integer array and insert nodes into tree
+	for (int i = 0; i < sizeof(treeOne) / sizeof(treeOne[0]); i++) {
+		root = bt.insert(root, treeOne[i]);
+	}
+
+	// Level Order Traversal (traverse the tree level by level going from leftmost node to right
+	std::cout << "Level Order Traversal" << std::endl;
+	bt.levelOrder(root);
+	std::cout << std::endl;
+  	// 3 2 5 1 4 6 7 
+
+	// Max Height of Binary Tree
+	std::cout << "Tree Height: " << bt.height(root) << std::endl;
+  	// 3
+
+	// tree 2
+	Node *temp;
+	BinaryTree bst;
+	// 4 2 6 1 3 5 7
+	int treeTwo[] = {4,2,6,1,3,5,7};
+  
+	for (int i = 0; i < sizeof(treeTwo) / sizeof(treeTwo[0]); i++) {
+		temp = bst.insert(temp, treeTwo[i]);
+	}
+  
+	std::cout << "Level order traversal: " << std::endl;
+	bst.levelOrder(temp);
+	std::cout << std::endl;
+  	// 4 2 6 1 3 5 7 
+  
+	std::cout << "Tree Height: " << bst.height(temp) << std::endl;
+  	// 2
 
     return 0;
 }
