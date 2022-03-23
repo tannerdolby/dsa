@@ -44,6 +44,24 @@ public:
         return root;
     }
 
+    // Average: O(log(n)) time and O(d)=O(log(n)) space
+    // Worst: O(n) time and O(d)=O(n) space
+    Node* searchBST(Node *root, int target) {
+        return searchHelper(root, target);
+    }
+
+    Node* searchHelper(Node *root, int target) {
+        if (root == NULL) return root;
+
+        if (target == root->data) {
+            return root;
+        } else if (target < root->data) {
+            return searchHelper(root->left, target);
+        } else {
+            return searchHelper(root->right, target);
+        }
+    }
+
     int height(Node *root) {
         if (root == NULL) {
             return -1;
