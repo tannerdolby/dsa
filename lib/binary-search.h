@@ -1,5 +1,5 @@
-// Iterative: O(n) time and O(1) space
-// Recursive: O(n) time and O(n) space
+// Iterative: O(log(n)) time and O(1) space
+// Recursive: O(log(n)) time and O(log(n)) space
 
 template <typename T>
 int binarySearchIterative(std::vector<T> arr, T target) {
