@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+// 125. Valid Palindrome: https://leetcode.com/problems/valid-palindrome/
 
 /// Approach
 // 1. Iterate the input string `s` and append only the alpha-numeric characters 
@@ -9,6 +10,7 @@ using namespace std;
 
 class Solution {
 public:
+    // Iterative approach
     // O(n) time and O(1) space
     bool isPalindrome(string s) {
         string palindrome = "";
@@ -27,7 +29,7 @@ public:
                 return false;
             }
             left++;
-			right--;
+            right--;
         }
         return true;
     }
