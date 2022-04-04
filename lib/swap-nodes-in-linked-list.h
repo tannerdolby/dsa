@@ -26,7 +26,7 @@ ListNode* swapNodes(ListNode* head, int k) {
     ListNode* p3 = p1;
 
     // move p2 k positions from tail
-    // and p3 will be at the tail
+    // and p3 will land at the tail
     while (p2 != NULL && p3->next != NULL) {
         p2 = p2->next;
         p3 = p3->next;
@@ -37,7 +37,7 @@ ListNode* swapNodes(ListNode* head, int k) {
     p1->val = p2->val;
     p2->val = nodeOneValue;
     
-    // or perform the swap with built-int swap()
+    // or perform the swap with built-in swap()
     // swap(p1->val, p2->val);
     
     return head;
