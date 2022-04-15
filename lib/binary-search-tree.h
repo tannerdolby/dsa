@@ -29,18 +29,19 @@ public:
     Node *root;
 
     Node* insert(Node *root, int data) {
-        // if the root node pointer is not null, insert nodes
-        if (root != NULL) {
-            if (data <= root->data) {
-                root->left = insert(root->left, data);
-            } else {
-                root->right = insert(root->right, data);
-            }
+        // base case: when we reach the correct child node 
+        // of a leaf, insert the new node
+        if (root == NULL) return new Node(data);
+        
+        // do dfs to find where in the BST we can insert
+        if (data < root->data) {
+            // insert node into left subtree as a child of leaf node
+            root->left = insert(root->left, data);
         } else {
-            // root node pointer is null so create a new Node
-            return new Node(data);
+            // insert node into right subtree as a child of leaf node
+            root->right = insert(root->right, data);
         }
-        // return the root node pointer
+        
         return root;
     }
 
