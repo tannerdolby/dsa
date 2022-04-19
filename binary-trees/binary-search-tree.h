@@ -6,20 +6,18 @@ using namespace std;
 // A node class representing nodes in a binary tree
 class Node {
 	public:
-		int data;
+		int val;
 		Node *left;
 		Node *right;
-		// default constructor
 		Node() {
-			data = 0;
-			left = NULL;
-			right = NULL;
+			val = 0;
+			left = nullptr;
+			right = nullptr;
 		}
-		// parameterized constructor
 		Node(int n) {
-			data = n;
-			left = NULL;
-			right = NULL;
+			val = n;
+			left = nullptr;
+			right = nullptr;
 		}
 };
 
@@ -28,18 +26,18 @@ class BinaryTree {
 public:
     Node *root;
 
-    Node* insert(Node *root, int data) {
+    Node* insert(Node *root, int val) {
         // base case: when we reach the correct child node 
         // of a leaf, insert the new node
-        if (root == NULL) return new Node(data);
+        if (root == NULL) return new Node(val);
         
         // do dfs to find where in the BST we can insert
-        if (data < root->data) {
+        if (val < root->val) {
             // insert node into left subtree as a child of leaf node
-            root->left = insert(root->left, data);
+            root->left = insert(root->left, val);
         } else {
             // insert node into right subtree as a child of leaf node
-            root->right = insert(root->right, data);
+            root->right = insert(root->right, val);
         }
         
         return root;
@@ -54,9 +52,9 @@ public:
     Node* searchHelper(Node *root, int target) {
         if (root == NULL) return root;
 
-        if (target == root->data) {
+        if (target == root->val) {
             return root;
-        } else if (target < root->data) {
+        } else if (target < root->val) {
             return searchHelper(root->left, target);
         } else {
             return searchHelper(root->right, target);
@@ -81,7 +79,7 @@ public:
         if (root == NULL) {
             return;
         }
-        traversal.push_back(root->data);
+        traversal.push_back(root->val);
         preorderHelper(root->left, traversal);
         preorderHelper(root->right, traversal);
     }
@@ -98,7 +96,7 @@ public:
             return;
         }
         inorderHelper(root->left, traversal);
-        traversal.push_back(root->data);
+        traversal.push_back(root->val);
         inorderHelper(root->right, traversal);
     }
 
@@ -115,7 +113,7 @@ public:
         }
         postorderHelper(root->left, traversal);
         postorderHelper(root->right, traversal);
-        traversal.push_back(root->data);
+        traversal.push_back(root->val);
     }
 
     // O(n) time and O(d) space
@@ -137,7 +135,7 @@ public:
             Node *curr = q.front();
             q.pop();
 
-            levelOrderTraversal.push_back(curr->data);
+            levelOrderTraversal.push_back(curr->val);
 
             // add left/right child nodes to queue if they exist
             if (curr->left != NULL) q.push(curr->left);

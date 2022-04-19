@@ -2,6 +2,7 @@
 #include "binary-search.h"
 #include "singly-linked-list.h"
 #include "binary-search-tree.h"
+#include "find-unique-senders.h"
 
 int main() {
     // Binary Search Examples
@@ -115,6 +116,21 @@ int main() {
   
 	std::cout << "Tree Height: " << bst.height(temp) << std::endl;
   	// 2
+
+	// find unique sender demo
+	vector<vector<int>> input;
+    input.push_back({1,2});
+    input.push_back({0,1});
+    input.push_back({2,3});
+    input.push_back({5,6});
+    input.push_back({4,5});
+
+    vector<int> res = findUniqueSender(input);
+
+    for (auto r : res) {
+        cout << r << " ";
+    }
+    cout << endl;
 
     return 0;
 }
