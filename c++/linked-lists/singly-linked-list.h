@@ -1,5 +1,5 @@
 //============================================================================
-// Name        : LinkedLists.cpp
+// Name        : SinglyLinkedList.cpp
 // Author      : Tanner Dolby
 // Version     : 0.0.1
 // Copyright   : MIT License
