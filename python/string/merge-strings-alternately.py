@@ -1,4 +1,20 @@
 class Solution:
+    # Iterative
+    # O(n+m) time | O(n+m) space
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+        i = 0
+        n = len(word1)
+        m = len(word2)
+        merged = ""
+
+        while i < n or i < m:
+            if i < n:
+                merged += word1[i]
+            if i < m:
+                merged += word2[i]
+            i += 1
+        return merged
+
     # Recursive
     # O(n + m) time | O(n + m) space
     def mergeAlternately(self, word1: str, word2: str) -> str:
